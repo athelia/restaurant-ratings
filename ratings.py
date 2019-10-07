@@ -12,3 +12,20 @@ Iterate over the dictionary
 """
 
 # put your code here
+def print_restaurant_ratings(path):
+    """Print restaurants alphabetically with their ratings."""
+
+    file = open(path)
+
+    restaurant_ratings = {}
+
+    for line in file:
+        restaurant_and_rating = line.rstrip().split(':')
+        restaurant_ratings[restaurant_and_rating[0]] = restaurant_and_rating[1]
+
+    sorted_restaurants = sorted(restaurant_ratings)
+
+    for restaurant in sorted_restaurants:
+        print(f"{restaurant}: {restaurant_ratings[restaurant]}")
+    
+    file.close()
